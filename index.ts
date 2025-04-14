@@ -15,6 +15,7 @@ export const zNote = z.string()
 export type Note = z.infer<typeof zNote>
 
 export const zIngredientBase = z.object({
+  name: z.string(),
   amounts: z.array(zAmount),
   processing: z.array(z.string()).optional(),
   notes: z.array(zNote).optional(),
@@ -66,6 +67,6 @@ export const zRecipe = z.object({
   source_authors: z.array(z.string()),
   source_url: z.string().optional(),
   steps: z.array(zStep),
-  yields: zAmount
+  yields: z.array(zAmount)
 })
 export type Recipe = z.infer<typeof zRecipe>
